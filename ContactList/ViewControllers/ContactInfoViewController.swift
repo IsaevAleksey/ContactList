@@ -8,11 +8,18 @@
 import UIKit
 
 class ContactInfoViewController: UIViewController {
-
+    
+    var person: Person!
+    
+    @IBOutlet var phoneLabel: UILabel!
+    
+    @IBOutlet var emailLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = person.fullName
+        phoneLabel.text = person.phoneNumber
+        emailLabel.text = person.email
     }
     
 
