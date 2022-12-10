@@ -8,13 +8,7 @@
 import UIKit
 
 class PersonsListViewController: UITableViewController {
-    private let persons = Person.getPersonList()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-
-    }
+    var persons: [Person]!
 
     // MARK: - Table view data source
 
@@ -26,18 +20,22 @@ class PersonsListViewController: UITableViewController {
         2
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        persons[section].fullName
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personInfo", for: indexPath)
-        let person = persons[indexPath.row]
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let person = persons[indexPath.section]
         var content = cell.defaultContentConfiguration()
-        content.text = person.phoneNumber
-        cell.contentConfiguration = content
 
-        // Configure the cell...
-
+        if indexPath.row == 0 {
+            content.text = person.phoneNumber
+//            content.image = UIImage
+        } else {
+            content.text = person.email
+//            content.image = UIImage
+        }
         return cell
     }
-
-
 }

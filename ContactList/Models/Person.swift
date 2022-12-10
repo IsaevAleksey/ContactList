@@ -18,8 +18,6 @@ struct Person {
         var persons = [Person(name: names.randomElement()!, lastName: lastNames.randomElement()!, email: emails.randomElement()!, phoneNumber: phoneNumbers.randomElement()!)]
         for person in persons {
             let newPerson = Person(name: names.randomElement()!, lastName: lastNames.randomElement()!, email: emails.randomElement()!, phoneNumber: phoneNumbers.randomElement()!)
-//            for person in persons {
-//                let newPerson = Person(name: names.randomElement()!, lastName: lastNames.randomElement()!, email: emails.randomElement()!, phoneNumber: phoneNumbers.randomElement()!)
                 if person == newPerson {
                     continue
                 } else {
